@@ -1,2 +1,15 @@
-# UAS-Kecebut
-royek AI menggunakan CNN atau Machine Learning untuk klasifikasi, prediksi, atau pengenalan pola.
+# UAS Kecerdasan Buatan: Machine Learning
+
+Proyek ini merupakan tugas UAS mata kuliah Kecerdasan Buatan yang membahas penerapan machine learning untuk melakukan clustering data negara menggunakan algoritma KMeans. Dataset yang digunakan adalah `Country-data.csv`, yang berisi indikator sosial-ekonomi dan kesehatan dari berbagai negara. Melalui proyek ini, negara-negara dikelompokkan berdasarkan kemiripan karakteristik sehingga perbedaan antarnegara dapat dianalisis dengan lebih sistematis.
+
+Secara umum, tujuan utama dari proyek ini adalah menemukan kelompok negara yang memiliki pola data serupa, menentukan jumlah cluster yang paling sesuai, dan menampilkan hasil analisis dalam bentuk yang mudah dipahami. Dengan pendekatan ini, data tidak hanya diproses sebagai angka, tetapi juga diubah menjadi informasi yang dapat membantu memahami kondisi sosial-ekonomi masing-masing negara.
+
+Tahap awal proyek dilakukan melalui preprocessing. Pada tahap ini, dataset dibaca dari file `Country-data.csv`, kolom `Country` dipisahkan dari fitur numerik, lalu dilakukan pengecekan ukuran data, tipe data, dan missing value. Setelah itu, data dibagi menjadi data latih dan data uji dengan rasio 80:20. Agar proses clustering berjalan lebih baik, fitur juga melalui imputasi median dan standardisasi menggunakan `StandardScaler`.
+
+Setelah preprocessing, model dilatih menggunakan algoritma KMeans. Beberapa nilai cluster diuji terlebih dahulu, yaitu dari 2 sampai 8, untuk melihat kombinasi yang paling baik. Evaluasi dilakukan dengan menghitung inertia dan silhouette score. Dari hasil tersebut, jumlah cluster terbaik dipilih, kemudian model KMeans final dilatih kembali menggunakan nilai cluster yang paling optimal.
+
+Pada tahap testing, model yang telah dilatih digunakan untuk memprediksi cluster pada data uji. Hasil prediksi ini menampilkan nama negara beserta cluster yang dihasilkan, sehingga dapat terlihat bagaimana tiap negara dikelompokkan oleh model. Selain itu, rata-rata fitur pada setiap cluster juga dihitung untuk memahami profil masing-masing kelompok negara dan melihat perbedaan karakteristik antarcluster.
+
+Tahap terakhir adalah evaluasi. Pada tahap ini, kualitas clustering diukur menggunakan silhouette score pada data train, data test, dan seluruh data. Selain itu, hasil clustering divisualisasikan menggunakan PCA dua dimensi agar pola pemisahan antarcluster lebih mudah diamati. Visualisasi ini membantu menunjukkan bahwa data negara dapat dibagi ke dalam kelompok yang berbeda berdasarkan indikator sosial-ekonomi yang dimilikinya.
+
+Notebook ini menggunakan beberapa pustaka utama, yaitu `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, dan `IPython`. Untuk menjalankan proyek ini, pastikan file `Country-data.csv` berada di folder yang sama dengan notebook, lalu jalankan seluruh cell secara berurutan dari preprocessing hingga evaluasi. README ini dibuat sebagai penjelasan singkat agar isi dan alur pengerjaan proyek lebih mudah dipahami saat dikumpulkan.
